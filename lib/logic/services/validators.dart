@@ -27,4 +27,11 @@ class Validators {
       return 'Password length must be greater than 6';
     }
   }
+  String? validateField(String? value){
+    if(value!.isEmpty){
+      return 'Field should not be empty';
+
+    }
+    return null;
+  }
 }

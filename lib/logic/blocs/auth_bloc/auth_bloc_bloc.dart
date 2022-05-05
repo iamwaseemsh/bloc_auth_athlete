@@ -19,6 +19,7 @@ class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
       : super(Uninitialized()) {
     on<AppStarted>(_onAppStartedEvent);
     on<NewLoggedIn>(_newLoggedInEvent);
+    on<LogOut>(_logoutEvent);
   }
   Future<void> _onAppStartedEvent(
       AppStarted appStarted, Emitter<AuthBlocState> emit) async {
@@ -43,6 +44,16 @@ class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
 
   Future<void> _newLoggedInEvent(
       NewLoggedIn event, Emitter<AuthBlocState> emit) async {
+
+    if (event.user.athlete.firstName.isEmpty ||
+        event.user.athlete.profileImageUrl.isEmpty) {
+      return emit(ShowOnBoardingScreen());
+    }
     emit(Authenticated(userModal: event.user));
+
+  }  Future<void> _logoutEvent(
+      LogOut event, Emitter<AuthBlocState> emit) async {
+   await authRepository.removeUser();
+   emit(Unauthenticated());
   }
 }

@@ -17,6 +17,22 @@ class FormSubmitted extends LoginEvent {
   // TODO: implement props
   List<Object?> get props => [email, password];
 }
-class LogOut extends LoginEvent{
-  
+
+// event for uploading user info
+
+class OnBoardingFormSubmitted extends LoginEvent{
+  final String firstName;
+  final String lastName;
+  final String gender;
+  final String dob;
+  final File? profileImage;
+  OnBoardingFormSubmitted({
+   required this.profileImage,
+    required this.lastName,
+    required this.firstName,
+    required this.dob,
+    required this.gender
+});
+  @override
+  List<Object?> get props => [profileImage,lastName,firstName,dob,gender];
 }

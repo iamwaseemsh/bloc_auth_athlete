@@ -15,3 +15,6 @@ class NewLoggedIn extends AuthBlocEvent{
   
   List<Object> get props => [user];
 }
+class LogOut extends AuthBlocEvent{
+
+}

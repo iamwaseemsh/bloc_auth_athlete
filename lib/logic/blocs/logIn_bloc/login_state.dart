@@ -26,3 +26,19 @@ class LoginError extends LoginState{
   // TODO: implement props
   List<Object?> get props => [msg];
 }
+
+class OnBoardingLoading extends LoginState{}
+class OnBoardingSuccess extends LoginState{
+  final UserModal user;
+  OnBoardingSuccess({required this.user});
+  @override
+
+  List<Object?> get props => [user];
+}
+class OnBoardingError extends LoginState{
+  final String msg;
+  OnBoardingError({required this.msg});
+  @override
+  // TODO: implement props
+  List<Object?> get props => [msg];
+}

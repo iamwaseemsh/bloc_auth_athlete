@@ -9,7 +9,7 @@ class UserModal {
   late final String token;
 
   UserModal.fromJson(Map<String, dynamic> json) {
-    msg = json['msg'];
+    msg = json['msg']??'';
     athlete = Athlete.fromJson(json['athlete']);
     token = json['token'] ?? '';
   }

@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(children: [
-            TextFieldWidgetType1(
+            CustomTextField(
               validator: Validators().validateEmail,
               hintText: 'Email',
               isEmail: true,
@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                 return null;
               },
             ),
-            TextFieldWidgetType1(
+            CustomTextField(
               validator: Validators().validatePassword,
               hintText: 'Password',
               isPassword: true,
